@@ -1,0 +1,772 @@
+/* =============================================================
+ * UrbanWay CitySense — High-End Warm Mesh-Gradient Design System
+ * Crisp White Background (#FFFFFF) + Amber Yellow (#F59E0B),
+ * Vibrant Orange (#F97316), Crimson Red (#EF4444)
+ * ============================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-editorial: 'Playfair Display', Georgia, serif;
+
+  /* Crisp Base */
+  --bg-canvas: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-subtle: #fffbf5;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-light: #64748b;
+
+  /* Warm Palette (Yellow, Orange, Crimson Red) */
+  --warm-yellow: #f59e0b;
+  --warm-yellow-light: #fef3c7;
+  --warm-orange: #f97316;
+  --warm-orange-light: #ffedd5;
+  --warm-crimson: #ef4444;
+  --warm-crimson-light: #fee2e2;
+
+  --accent-emerald: #10b981;
+  --accent-emerald-light: #ecfdf5;
+
+  /* Warm Borders & Glows */
+  --border-warm-light: rgba(254, 215, 170, 0.7);
+  --border-warm-subtle: rgba(255, 237, 213, 0.85);
+  --shadow-warm-subtle: 0 20px 45px -12px rgba(249, 115, 22, 0.08), 0 4px 12px rgba(15, 23, 42, 0.02);
+  --shadow-warm-hover: 0 25px 50px -10px rgba(249, 115, 22, 0.16), 0 10px 20px -5px rgba(239, 68, 68, 0.1);
+  --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #f97316 48%, #ef4444 100%);
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-canvas);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.editorial-italic {
+  font-family: var(--font-editorial);
+  font-style: italic;
+}
+
+/* =============================================================
+ * WARM GRADIENT TEXT & CLIPPING
+ * ============================================================= */
+.warm-gradient-text {
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 48%, #ef4444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.warm-gradient-text-alt {
+  background: linear-gradient(135deg, #fbbf24 0%, #f97316 55%, #dc2626 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =============================================================
+ * FLOWING MESH GRADIENTS (YELLOW, ORANGE, CRIMSON ON PURE WHITE)
+ * ============================================================= */
+.ambient-orb {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+  animation: orb-warm-drift 20s ease-in-out infinite alternate;
+}
+
+.ambient-orb-1 {
+  width: 720px;
+  height: 720px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.32), rgba(249, 115, 22, 0.22), transparent 70%);
+  filter: blur(85px);
+  top: -160px;
+  right: -120px;
+  opacity: 0.32;
+}
+
+.ambient-orb-2 {
+  width: 680px;
+  height: 680px;
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.28), rgba(249, 115, 22, 0.2), transparent 70%);
+  filter: blur(95px);
+  top: 35%;
+  left: -220px;
+  opacity: 0.28;
+  animation-duration: 25s;
+  animation-delay: -6s;
+}
+
+.ambient-orb-3 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.3), rgba(244, 63, 94, 0.22), transparent 70%);
+  filter: blur(90px);
+  bottom: 8%;
+  right: -140px;
+  opacity: 0.28;
+  animation-duration: 22s;
+  animation-delay: -10s;
+}
+
+.ambient-orb-hero {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.25) 0%, rgba(249, 115, 22, 0.2) 40%, rgba(239, 68, 68, 0.12) 65%, transparent 75%);
+  filter: blur(80px);
+  top: -180px;
+  left: 20%;
+  pointer-events: none;
+  opacity: 0.35;
+  animation: hero-mesh-pulse 14s infinite ease-in-out alternate;
+}
+
+@keyframes orb-warm-drift {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(45px, 65px) scale(1.1); }
+  100% { transform: translate(-35px, 45px) scale(0.96); }
+}
+
+@keyframes hero-mesh-pulse {
+  0% { transform: scale(0.95) translate(0, 0); opacity: 0.28; }
+  50% { transform: scale(1.08) translate(30px, -20px); opacity: 0.38; }
+  100% { transform: scale(0.98) translate(-20px, 20px); opacity: 0.3; }
+}
+
+/* =============================================================
+ * GLASSMORPHISM FLOATING CONTAINERS (ROUNDED-3XL)
+ * ============================================================= */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-warm-subtle);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-warm-subtle);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-warm-light);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px -8px rgba(249, 115, 22, 0.06);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-navbar {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(254, 215, 170, 0.8);
+  box-shadow: 0 14px 40px -10px rgba(249, 115, 22, 0.1);
+  border-radius: 9999px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover Elevation & 3D Depth */
+.delight-card, .interactive-card, .glass-card-hover {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.3s ease;
+}
+
+.delight-card:hover, .interactive-card:hover, .glass-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-warm-hover);
+  border-color: rgba(249, 115, 22, 0.4);
+}
+
+/* =============================================================
+ * INTERACTIVE BUTTONS & CALL-TO-ACTIONS (CTAS)
+ * ============================================================= */
+/* Primary Pill: Vibrant linear gradient with glowing aura */
+.btn-warm-pill {
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 48%, #ef4444 100%);
+  color: #ffffff;
+  border-radius: 9999px;
+  font-weight: 700;
+  box-shadow: 0 8px 24px -4px rgba(249, 115, 22, 0.38);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-warm-pill:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 14px 34px -4px rgba(249, 115, 22, 0.48), 0 0 20px rgba(245, 158, 11, 0.3);
+}
+.btn-warm-pill:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+/* Secondary Button: Transparent rounded glass pills with thin borders */
+.btn-glass-pill {
+  border: 1px solid rgba(203, 213, 225, 0.9);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 9999px;
+  color: #334155;
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-glass-pill:hover {
+  background: rgba(255, 247, 237, 0.95);
+  border-color: #fdba74;
+  color: #ea580c;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 20px -4px rgba(249, 115, 22, 0.15);
+}
+.btn-glass-pill:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+/* Tactile General Button */
+.btn-tactile {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-tactile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(249, 115, 22, 0.16);
+}
+.btn-tactile:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+/* =============================================================
+ * STATUS DOT INDICATORS (FOR MAP HUD & BADGES)
+ * ============================================================= */
+.dot-status-yellow {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+}
+
+.dot-status-orange {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #f97316;
+  box-shadow: 0 0 8px #f97316;
+}
+
+.dot-status-red {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #ef4444;
+  box-shadow: 0 0 8px #ef4444;
+  animation: pulse-ring 1.8s infinite;
+}
+
+.dot-status-emerald {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(0.9); opacity: 1; }
+}
+
+/* =============================================================
+ * MAP HUD CONTROLS (FLOATING WHITE PILL CHIPS)
+ * ============================================================= */
+.hud-pill-chip {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(254, 215, 170, 0.85);
+  color: #334155;
+  border-radius: 9999px;
+  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.08);
+}
+.hud-pill-chip:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 12px 25px -4px rgba(249, 115, 22, 0.18);
+  border-color: #f97316;
+}
+.hud-chip-active-emerald {
+  background: #ecfdf5 !important;
+  border-color: #10b981 !important;
+  color: #065f46 !important;
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.3) !important;
+}
+.hud-chip-active-amber {
+  background: #fffbeb !important;
+  border-color: #f59e0b !important;
+  color: #92400e !important;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.3) !important;
+}
+.hud-chip-active-cyan {
+  background: #fff7ed !important;
+  border-color: #f97316 !important;
+  color: #c2410c !important;
+  box-shadow: 0 0 14px rgba(249, 115, 22, 0.3) !important;
+}
+.hud-chip-active-rose {
+  background: #fef2f2 !important;
+  border-color: #ef4444 !important;
+  color: #991b1b !important;
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.3) !important;
+}
+
+/* Global City Presets Pill Bar */
+.global-preset-pill {
+  white-space: nowrap;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 9999px;
+}
+.global-preset-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px -3px rgba(249, 115, 22, 0.2);
+}
+.city-preset-active {
+  background: linear-gradient(135deg, #f59e0b, #f97316, #ef4444) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  font-weight: 700 !important;
+  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.35) !important;
+}
+
+/* =============================================================
+ * LEAFLET MAP LIGHT THEME ADAPTATION
+ * ============================================================= */
+.leaflet-container {
+  font-family: var(--font-main) !important;
+  background: #f8fafc !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(255, 255, 255, 0.98) !important;
+  color: #0f172a !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(254, 215, 170, 0.85) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 20px 35px -10px rgba(249, 115, 22, 0.15), 0 0 20px -5px rgba(239, 68, 68, 0.1) !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.leaflet-popup-tip {
+  background: #ffffff !important;
+  border: 1px solid rgba(254, 215, 170, 0.85) !important;
+}
+
+.leaflet-popup-close-button {
+  color: #64748b !important;
+  padding: 8px !important;
+  font-size: 18px !important;
+}
+
+.leaflet-popup-close-button:hover {
+  color: #0f172a !important;
+}
+
+/* Pulsing Leaflet Markers */
+.marker-pin-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.marker-pin-wrapper:hover {
+  transform: scale(1.18);
+  z-index: 1000 !important;
+}
+
+.marker-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.25);
+  border: 2px solid #ffffff;
+  position: relative;
+  z-index: 2;
+}
+
+/* Hazard Pulse Ring */
+.hazard-pulse-ring {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.35);
+  animation: hazard-pulse 2s infinite ease-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes hazard-pulse {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  50% { transform: scale(1.3); opacity: 0.3; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Safe Route Pulsing Glow */
+.safe-pulse-ring {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.4);
+  animation: safe-pulse 2.2s infinite ease-out;
+  pointer-events: none;
+}
+
+@keyframes safe-pulse {
+  0% { transform: scale(0.7); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Glow Utilities */
+.neon-glow-emerald {
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.3);
+}
+
+.neon-glow-rose {
+  box-shadow: 0 0 18px rgba(239, 68, 68, 0.3);
+}
+
+.neon-glow-warm {
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.35);
+}
+
+.neon-glow-amber {
+  box-shadow: 0 0 18px rgba(245, 158, 11, 0.3);
+}
+
+/* Route Dash Animations for Map */
+@keyframes dash-move {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.leaflet-interactive.route-fastest {
+  stroke-dasharray: 8, 8;
+  animation: dash-move 1.2s linear infinite;
+}
+
+/* Radar-like Sweep Animation */
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.radar-sweep {
+  animation: radar-sweep 6s linear infinite;
+}
+
+/* =============================================================
+ * SCROLL REVEAL & INTERSECTION OBSERVER ANIMATIONS
+ * ============================================================= */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px) scale(0.99);
+  filter: blur(3px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0px);
+}
+
+.stagger-1 { transition-delay: 60ms; }
+.stagger-2 { transition-delay: 120ms; }
+.stagger-3 { transition-delay: 180ms; }
+.stagger-4 { transition-delay: 240ms; }
+.stagger-5 { transition-delay: 300ms; }
+
+/* Scroll progress indicator (warm sunset gradient) */
+#scrollProgressBar {
+  background: linear-gradient(90deg, #f59e0b, #f97316, #ef4444) !important;
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.6);
+}
+
+/* Back to top floating button */
+.back-to-top-btn {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.back-to-top-btn:hover {
+  transform: translateY(-4px) scale(1.08);
+}
+
+/* =============================================================
+ * EMERGENCY SOS FLOATING BEACON & SIREN PULSE
+ * ============================================================= */
+.sos-floating-btn {
+  position: relative;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.5), 0 8px 20px rgba(15, 23, 42, 0.15);
+  animation: sos-bounce 3s infinite ease-in-out;
+}
+
+@keyframes sos-bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.sos-beacon-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  border: 2px solid rgba(239, 68, 68, 0.8);
+  animation: sos-ring-expand 1.8s infinite cubic-bezier(0, 0.2, 0.8, 1);
+  pointer-events: none;
+}
+
+@keyframes sos-ring-expand {
+  0% { transform: scale(0.9); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Simulated Audio Waveform */
+.audio-wave-container {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 28px;
+}
+
+.wave-bar {
+  width: 3px;
+  background: #f97316;
+  border-radius: 9999px;
+  height: 6px;
+  transition: height 0.15s ease;
+}
+
+.is-recording .wave-bar:nth-child(1) { animation: wave-anim 0.8s infinite 0.1s; }
+.is-recording .wave-bar:nth-child(2) { animation: wave-anim 0.8s infinite 0.3s; }
+.is-recording .wave-bar:nth-child(3) { animation: wave-anim 0.8s infinite 0.2s; }
+.is-recording .wave-bar:nth-child(4) { animation: wave-anim 0.8s infinite 0.4s; }
+.is-recording .wave-bar:nth-child(5) { animation: wave-anim 0.8s infinite 0.25s; }
+.is-recording .wave-bar:nth-child(6) { animation: wave-anim 0.8s infinite 0.35s; }
+.is-recording .wave-bar:nth-child(7) { animation: wave-anim 0.8s infinite 0.15s; }
+.is-recording .wave-bar:nth-child(8) { animation: wave-anim 0.8s infinite 0.45s; }
+
+@keyframes wave-anim {
+  0%, 100% { height: 6px; background: #f59e0b; }
+  50% { height: 26px; background: #ef4444; }
+}
+
+/* Gamification Badge Cards */
+.badge-unlocked {
+  border-color: rgba(249, 115, 22, 0.4);
+  background: radial-gradient(circle at top right, rgba(254, 215, 170, 0.3), rgba(255, 255, 255, 0.95));
+}
+
+.badge-locked {
+  filter: grayscale(0.7);
+  opacity: 0.65;
+}
+
+/* Heatmap Polygon Info Window */
+.heatmap-tooltip {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid rgba(254, 215, 170, 0.9) !important;
+  color: #0f172a !important;
+  font-family: var(--font-main) !important;
+  font-size: 11px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.12) !important;
+}
+
+/* =============================================================
+ * DYNAMIC PULSING INDICATORS (EMERALD GREEN & WARM CORAL/RED)
+ * ============================================================= */
+.safe-pulse-indicator {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.safe-pulse-indicator::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: rgba(16, 185, 129, 0.4);
+  animation: safe-emerald-pulse 2s infinite ease-out;
+  pointer-events: none;
+}
+@keyframes safe-emerald-pulse {
+  0% { transform: scale(0.8); opacity: 0.9; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+.safe-zone-glow {
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.35);
+  border-color: rgba(16, 185, 129, 0.5) !important;
+}
+
+.hazard-pulse-indicator {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.hazard-pulse-indicator::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: inherit;
+  background: rgba(239, 68, 68, 0.45);
+  animation: hazard-coral-pulse 1.5s infinite ease-out;
+  pointer-events: none;
+}
+@keyframes hazard-coral-pulse {
+  0% { transform: scale(0.7); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.hazard-zone-glow {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.35);
+  border-color: rgba(239, 68, 68, 0.5) !important;
+}
+
+/* =============================================================
+ * QUICK SEARCH COMMAND PALETTE (Ctrl + K / ⌘K)
+ * ============================================================= */
+.command-palette-backdrop {
+  animation: cmdFadeIn 0.2s ease-out;
+}
+.command-palette-panel {
+  animation: cmdScaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #ffffff;
+  border: 1px solid rgba(254, 215, 170, 0.9);
+  box-shadow: 0 25px 50px -12px rgba(249, 115, 22, 0.2);
+  border-radius: 1.5rem;
+}
+@keyframes cmdFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes cmdScaleIn {
+  from { opacity: 0; transform: scale(0.96) translateY(-10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.cmd-item-selected {
+  background: rgba(254, 215, 170, 0.3) !important;
+  border-color: rgba(249, 115, 22, 0.4) !important;
+}
+
+/* =============================================================
+ * ANIMATED HERO STAT BADGES
+ * ============================================================= */
+.hero-stat-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(254, 215, 170, 0.7);
+  box-shadow: 0 8px 24px -4px rgba(249, 115, 22, 0.08);
+  border-radius: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero-stat-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(249, 115, 22, 0.4);
+  box-shadow: 0 20px 35px -8px rgba(249, 115, 22, 0.16), 0 0 15px -3px rgba(245, 158, 11, 0.2);
+}
+.hero-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.15), transparent);
+  transition: left 0.6s ease;
+}
+.hero-stat-card:hover::before {
+  left: 100%;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fffbf5;
+}
+::-webkit-scrollbar-thumb {
+  background: #fdba74;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316;
+}
+
+/* =============================================================
+ * DARK THEME FALLBACK (IF USER EXPLICITLY SWITCHES)
+ * ============================================================= */
+html.dark-theme, body.dark-theme {
+  background-color: #0c0a09 !important;
+  color: #f1f5f9 !important;
+}
+body.dark-theme .glass-panel {
+  background: rgba(28, 25, 23, 0.88) !important;
+  border-color: rgba(249, 115, 22, 0.25) !important;
+}
+body.dark-theme .glass-card {
+  background: rgba(28, 25, 23, 0.9) !important;
+  border-color: rgba(249, 115, 22, 0.2) !important;
+}
+body.dark-theme .glass-navbar {
+  background: rgba(28, 25, 23, 0.88) !important;
+  border-color: rgba(249, 115, 22, 0.25) !important;
+}
+body.dark-theme .text-slate-900,
+body.dark-theme .text-slate-800 {
+  color: #fafaf9 !important;
+}
+body.dark-theme .text-slate-700,
+body.dark-theme .text-slate-600 {
+  color: #d6d3d1 !important;
+}
+body.dark-theme .bg-white {
+  background-color: #1c1917 !important;
+}
